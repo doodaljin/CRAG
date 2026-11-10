@@ -15,7 +15,6 @@ tests/
 
 # Environments & Secrets
 .env
-.env.example
 .venv/
 env/
 venv/

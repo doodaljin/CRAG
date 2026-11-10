@@ -32,6 +32,7 @@ COPY src/ /app/src/
 COPY main.py /app/main.py
 COPY ingest.py /app/ingest.py
 COPY query.py /app/query.py
+COPY .env.example /app/.env.example
 
 ENTRYPOINT ["python"]
 CMD ["main.py"]

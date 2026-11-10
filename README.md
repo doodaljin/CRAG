@@ -44,8 +44,8 @@ flowchart TD
 ### Environment Setup
 ```bash
 pip install -r requirements.txt
-# Create a .env file and set your GOOGLE_API_KEY
-echo "GOOGLE_API_KEY=your_gemini_api_key_here" > .env
+cp .env.example .env
+# Edit .env and set your GOOGLE_API_KEY
 ```
 
 ### Phase 1: Offline Ingestion
@@ -92,8 +92,8 @@ Preconfigured with [`Dockerfile`](Dockerfile), [`.dockerignore`](.dockerignore),
 
 1. **Configure Environment:**
    ```bash
-   # Ensure .env exists with your GOOGLE_API_KEY
-   echo "GOOGLE_API_KEY=your_gemini_api_key_here" > .env
+   cp .env.example .env
+   # Edit .env with your GOOGLE_API_KEY
    ```
 
 2. **Run Offline Ingestion:**
