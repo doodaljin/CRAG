@@ -1,0 +1,30 @@
+# Git
+.git/
+.gitignore
+
+# Python caches & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+env/
+ENV/
+
+# Persistent database & cache (sẽ được mount từ host bằng volume)
+storage/
+tmp/
+*.pkl
+
+# Secrets
+.env
+
+# Tests & Docs
+tests/
+README.md
+.pytest_cache/
+
+# OS Specific
+.DS_Store
+Thumbs.db

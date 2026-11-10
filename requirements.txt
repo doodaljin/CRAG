@@ -1,0 +1,24 @@
+# Gemini Integration & LLM Orchestration
+langchain>=0.2.0
+langchain-core>=0.2.0
+langchain-community>=0.2.0
+langchain-google-genai>=1.0.8
+langgraph>=0.2.0
+
+# Document Parsing & Chunking
+docling>=2.0.0
+transformers>=4.40.0
+torch>=2.2.0
+
+# Vector Store, Search & Reranking
+qdrant-client>=1.9.0
+rank-bm25>=0.2.2
+sentence-transformers>=3.0.0
+flashrank>=0.2.0
+
+# Settings, Data & Evaluation
+pydantic>=2.7.0
+pydantic-settings>=2.2.0
+python-dotenv>=1.0.0
+ragas>=0.1.9
+datasets>=2.19.0

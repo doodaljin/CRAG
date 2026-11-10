@@ -1,0 +1,26 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Persistent storage & index databases
+storage/
+tmp/
+*.pkl
+
+# Excluded data and tests
+data/
+tests/
+
+# Environments & Secrets
+.env
+.env.example
+.venv/
+env/
+venv/
+ENV/
+
+# OS specific
+.DS_Store
+Thumbs.db

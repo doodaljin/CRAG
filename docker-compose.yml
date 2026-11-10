@@ -1,0 +1,59 @@
+services:
+  # -------------------------------------------------------------
+  # Phase 1: Offline Ingestion
+  # Run: docker compose run --rm ingest
+  # Or with custom args: docker compose run --rm ingest ingest.py --pdf data/your_file.pdf
+  # -------------------------------------------------------------
+  ingest:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: crag-engine:latest
+    container_name: crag-ingest
+    volumes:
+      - ./data:/app/data
+      - ./storage:/app/storage
+    env_file:
+      - path: .env
+        required: false
+    command: ["ingest.py", "--dir", "data/"]
+
+  # -------------------------------------------------------------
+  # Phase 2: Online Question Answering
+  # Interactive mode: docker compose run --rm query
+  # Single question: docker compose run --rm query query.py --question "Your question"
+  # -------------------------------------------------------------
+  query:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: crag-engine:latest
+    container_name: crag-query
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./storage:/app/storage:rw
+    env_file:
+      - path: .env
+        required: false
+    command: ["query.py"]
+
+  # -------------------------------------------------------------
+  # Unified CLI Service
+  # Run: docker compose run --rm app main.py
+  # -------------------------------------------------------------
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: crag-engine:latest
+    container_name: crag-app
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./data:/app/data
+      - ./storage:/app/storage:rw
+    env_file:
+      - path: .env
+        required: false
+    command: ["main.py"]
